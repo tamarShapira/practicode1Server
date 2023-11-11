@@ -19,11 +19,11 @@ app.UseCors(builder => builder
      .AllowAnyMethod()
      .AllowAnyHeader()); 
 
-if (app.Environment.IsDevelopment())
-{
+// if (app.Environment.IsDevelopment())
+// {
     app.UseSwagger();
     app.UseSwaggerUI();
-}
+// }
 
 app.UseSwaggerUI(options =>
 {
@@ -67,5 +67,6 @@ app.MapDelete("/deleteTodo/{id}", async (int id, ToDoDbContext db) =>
 
     return Results.NotFound();
 });
+app.MapGet("/", ()=>"hello world!");
 
 app.Run();
